@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple - javaScript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="colors">
+      <button class="btn" onclick="resetColor()">Reset</button>
+      <span onclick="changeColor('#fd8a8a')" style="--i: #fd8a8a"></span>
+      <span onclick="changeColor('#e8a0bf')" style="--i: #e8a0bf"></span>
+      <span onclick="changeColor('#b2a4ff')" style="--i: #b2a4ff"></span>
+      <span onclick="changeColor('#ffccb3')" style="--i: #ffccb3"></span>
+      <span onclick="changeColor('#FF8080')" style="--i: #ff8080"></span>
+      <span onclick="changeColor('#8EACCD')" style="--i: #8eaccd"></span>
+      <span onclick="changeColor('#EBEF95')" style="--i: #ebef95"></span>
+    </div>
+    <div class="container">
+      <h1 class="title">simple - JavaScript</h1>
+      <div class="caja"></div>
+    </div>
+    <script>
+      let box = document.querySelector(".caja");
+      let title = document.querySelector(".title");
+      const resetColor = () => {
+        box.style.background = "#28292b";
+        box.style.boxShadow = "none";
+        title.style.color = "rgba(0,0,0,0.4)";
+        title.style.textShadow = "none";
+        let items = document.querySelectorAll("span");
+        items.forEach((item) => {
+          item.classList.remove("active");
+        });
+        event.target.classList.add("active");
+      };
+      const changeColor = (color) => {
+        box.style.background = color;
+        box.style.boxShadow = `0 10px 30px${color}`;
+        title.style.color = color;
+        title.style.textShadow = `5px 5px 2px #000`;
+        title.style.opacity = 1;
+        let items = document.querySelectorAll("span");
+        items.forEach((item) => {
+          item.classList.remove("active");
+        });
+        event.target.classList.add("active");
+      };
+    </script>
+  </body>
+</html>
